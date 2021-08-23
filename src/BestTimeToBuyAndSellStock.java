@@ -1,7 +1,11 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class BestTimeToBuyAndSellStock {
     public static void main(String[] args) {
         BestTimeToBuyAndSellStockSolution solution = new BestTimeToBuyAndSellStockSolution();
-        int[] d = {2,2,3,3};
+        int[] d = {7,6,4,3,1};
         String[] strs = {"eat","tea","tan","ate","nat","bat"};
 
 
@@ -11,7 +15,12 @@ public class BestTimeToBuyAndSellStock {
 
 class BestTimeToBuyAndSellStockSolution {
     public int maxProfit(int[] prices) {
-
-        return 0;
+        int profit = 0;
+        int minPrice = Integer.MAX_VALUE;
+        for(int price : prices) {
+            minPrice = Math.min(minPrice,price);
+            profit = Math.max(profit,price - minPrice);
+        }
+        return profit;
     }
 }
